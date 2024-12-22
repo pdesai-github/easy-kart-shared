@@ -40,13 +40,9 @@ steps:
     versioningScheme: 'byBuildNumber'  # Let Azure DevOps handle versioning automatically
     includeSymbols: true
     includeSource: true
-- task: NuGetAuthenticate@1
-  inputs:
-    nuGetServiceConnections: 'nuget-art'
 - task: NuGetCommand@2
   inputs:
     command: 'push'
-    publishVstsFeed: 'easy-kart'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
-    publishFeedCredentials: 'nuget-art' # Securely store the API key in the pipeline's variable group or secrets
+    publishVstsFeed: 'd176b6b0-e072-4552-8c5d-e9ab3732a6df/06d8bcdf-6dff-4f7a-b7c4-8575f365d171'
