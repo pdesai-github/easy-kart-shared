@@ -14,7 +14,6 @@ name: $(Build.DefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 variables:
   solution: '**/*.sln' # Path to your solution file
   buildConfiguration: 'Release' # Build configuration
-  nugetFeed: 'https://api.nuget.org/v3/index.json' # NuGet feed URL  
 
 steps:
 # Install NuGet CLI
@@ -46,6 +45,6 @@ steps:
   inputs:
     command: 'push'
     publishVstsFeed: false
-    nuGetFeedType: 'external'
+    nuGetFeedType: 'internal'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
     publishFeedCredentials: 'nuget-art' # Securely store the API key in the pipeline's variable group or secrets
