@@ -44,7 +44,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'push'
-    publishVstsFeed: false
+    publishVstsFeed: 'easy-kart'
     nuGetFeedType: 'internal'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
     publishFeedCredentials: 'nuget-art' # Securely store the API key in the pipeline's variable group or secrets
