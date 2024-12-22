@@ -1,0 +1,56 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  solution: '**/*.sln' # Path to your solution file
+  buildConfiguration: 'Release' # Build configuration
+  nugetFeed: 'https://api.nuget.org/v3/index.json' # NuGet feed URL
+  
+
+steps:
+# Install NuGet CLI
+- task: NuGetToolInstaller@1
+
+# Restore dependencies
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '$(solution)'
+
+# Build the project
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:Configuration=$(buildConfiguration)'
+    platform: 'Any CPU'
+
+# Pack the NuGet package
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj' # Path to project files to package
+    versioningScheme: 'byBuildNumber'
+    includeReferencedProjects: true
+
+# Push the package to NuGet.org
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'bc8d03a3-44d9-4cff-9c8a-62d13a6922d5'
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    publishVstsFeed: false
+    nuGetFeedType: 'external'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
+    publishFeedCredentials: 'nuget-service-conn' # Securely store the API key in the pipeline's variable group or secrets
