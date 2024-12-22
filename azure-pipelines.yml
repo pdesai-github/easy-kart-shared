@@ -34,12 +34,13 @@ steps:
     platform: 'Any CPU'
 
 # Pack the NuGet package
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/*.csproj' # Path to project files to package
-    versioningScheme: 'byBuildNumber'
-    includeReferencedProjects: true
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'byBuildNumber'  # Let Azure DevOps handle versioning automatically
+    includeSymbols: true
+    includeSource: true
 
 # Push the package to NuGet.org
 - task: NuGetCommand@2
