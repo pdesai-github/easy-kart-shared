@@ -4,6 +4,13 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<PackageId>EasyKart.SharedLib</PackageId>
+	<Version>0.0.1</Version>
+	<Authors>Pradipkumar Desai</Authors>
+	<Description>This is the shared utility library for PD EShop API.</Description>
+	<PackageTags>ecommerce api shared-library utility common web PD.EShop ASP.NETCore</PackageTags>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<RepositoryUrl>https://github.com/pdesai-github/easy-kart-shared</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
