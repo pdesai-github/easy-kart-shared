@@ -42,17 +42,10 @@ steps:
     includeSymbols: true
     includeSource: true
 
-# Push the package to NuGet.org
-- task: NuGetCommand@2
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'bc8d03a3-44d9-4cff-9c8a-62d13a6922d5'
 - task: NuGetCommand@2
   inputs:
     command: 'push'
     publishVstsFeed: false
     nuGetFeedType: 'external'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
-    publishFeedCredentials: 'nuget-service-conn' # Securely store the API key in the pipeline's variable group or secrets
+    publishFeedCredentials: 'nuget-art' # Securely store the API key in the pipeline's variable group or secrets
