@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace EasyKart.Shared
+namespace EasyKart.Shared.Models
 {
     public class Product
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -21,5 +21,6 @@ namespace EasyKart.Shared
 
         [JsonProperty("image")]
         public string Image { get; set; }
+      
     }
 }
