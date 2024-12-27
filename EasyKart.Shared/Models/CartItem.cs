@@ -1,13 +1,20 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace EasyKart.Shared.Models
 {
     public class CartItem
     {
-        [JsonProperty("product")]
+        [Key]
+        public Guid Id { get; set; }
+
+        [Required]
+        public Guid OrderId { get; set; }
+
+        [Required]
         public Product Product { get; set; }
 
-        [JsonProperty("quantity")]
+        [Required]
         public int Quantity { get; set; }
     }
 }

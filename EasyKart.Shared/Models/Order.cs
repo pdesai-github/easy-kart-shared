@@ -16,7 +16,6 @@ namespace EasyKart.Shared.Models
         public Guid UserId { get; set; }
 
         [Required]
-        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }       
         
         public string Status { get; set; }
