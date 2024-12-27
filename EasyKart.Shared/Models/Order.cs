@@ -17,16 +17,9 @@ namespace EasyKart.Shared.Models
 
         [Required]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Price { get; set; }
-
-        [Required]
-        public Address Address { get; set; }
-
-        [Required]
-        public IPayment PaymentMethod { get; set; }
-
-        [Required]
-        public OrderStatus Status { get; set; }
+        public decimal Price { get; set; }       
+        
+        public string Status { get; set; }
 
     }
 }

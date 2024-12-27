@@ -23,8 +23,5 @@ namespace EasyKart.Shared.Models
         [Required]
         [MaxLength(100)]
         public string Password { get; set; }
-
-        public List<Address> Addresses { get; set; }
-
     }
 }
