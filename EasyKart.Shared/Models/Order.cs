@@ -7,21 +7,21 @@ namespace EasyKart.Shared.Models
     public class Order
     {
         [Key]
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         [Required]
-        public List<OrderItem> Items { get; private set; }
+        public List<OrderItem> Items { get; set; }
 
         [Required]
-        public Guid UserId { get; private set; }
+        public Guid UserId { get; set; }
 
         [Required]
-        public decimal Price { get; private set; }
+        public decimal Price { get; set; }
 
         [Required]
-        public DateTime CreatedDate { get; private set; }
+        public DateTime CreatedDate { get; set; }
 
-        public string Status { get; private set; }
+        public string Status { get; set; }
 
         public Order()
         {

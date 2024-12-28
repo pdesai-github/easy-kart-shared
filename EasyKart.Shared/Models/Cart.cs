@@ -6,16 +6,16 @@ namespace EasyKart.Shared.Models
     public class Cart
     {
         [JsonProperty("id")]
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         [JsonProperty("items")]
-        public List<CartItem> Items { get; private set; }
+        public List<CartItem> Items { get; set; }
 
         [JsonProperty("userId")]
-        public Guid UserId { get; private set; }
+        public Guid UserId { get; set; }
 
         [JsonProperty("price")]
-        public decimal Price { get; private set; }
+        public decimal Price { get; set; }
 
         public Cart(Guid userId)
         {
