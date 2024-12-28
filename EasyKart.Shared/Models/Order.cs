@@ -23,6 +23,10 @@ namespace EasyKart.Shared.Models
 
         public string Status { get; private set; }
 
+        public Order()
+        {
+            
+        }
         public Order(Guid userId, Cart cart)
         {
             Id = Guid.NewGuid();
