@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EasyKart.Shared.Events
 {
-    public class PaymentProcessed
+    public class ShippingConfirmedEvent
     {
         public DateTime CreatedAt { get; set; }
         public Order Order { get; set; }

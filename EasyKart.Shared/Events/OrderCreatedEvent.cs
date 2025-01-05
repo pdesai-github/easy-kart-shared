@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EasyKart.Shared.Events
 {
-    public class OrderCreated
+    public class OrderCreatedEvent
     {
         public DateTime CreatedAt { get; set; }
         public Order Order { get; set; }

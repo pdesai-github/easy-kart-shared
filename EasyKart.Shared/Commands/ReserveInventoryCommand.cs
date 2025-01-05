@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyKart.Shared.Events
+namespace EasyKart.Shared.Commands
 {
-    public class ShippingConfirmed
+    public class ReserveInventoryCommand
     {
         public DateTime CreatedAt { get; set; }
         public Order Order { get; set; }
