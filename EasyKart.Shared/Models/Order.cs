@@ -6,20 +6,16 @@ namespace EasyKart.Shared.Models
 {
     public class Order
     {
-        [JsonProperty("id")]
+        [JsonProperty(PropertyName = "id")]
         public Guid Id { get; set; }
 
-        [Required]
         public List<OrderItem> Items { get; set; }
 
-        [Required]
-        [JsonProperty("userId")]
+        [JsonProperty(PropertyName = "userId")]
         public Guid UserId { get; set; }
 
-        [Required]
         public decimal Price { get; set; }
 
-        [Required]
         public DateTime CreatedDate { get; set; }
 
         public string Status { get; set; }
