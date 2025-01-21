@@ -6,7 +6,7 @@ namespace EasyKart.Shared.Models
 {
     public class Order
     {
-        [Key]
+        [JsonProperty("id")]
         public Guid Id { get; set; }
 
         [Required]
