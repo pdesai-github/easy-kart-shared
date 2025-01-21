@@ -13,6 +13,7 @@ namespace EasyKart.Shared.Models
         public List<OrderItem> Items { get; set; }
 
         [Required]
+        [JsonProperty("userId")]
         public Guid UserId { get; set; }
 
         [Required]
